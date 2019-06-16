@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.cust.persistance;
 
 import com.caucho.hessian.client.HessianProxyFactory;
@@ -28,7 +23,9 @@ import java.util.UUID;
 
 /**
  *
- * @author ISanhot
+ * @author Inderjit SS
+ * @version 1.0.0
+ * @since 01.10.2016
  */
 public class PersistanceManager {
 
@@ -300,6 +297,7 @@ public class PersistanceManager {
     public boolean connectToService(String serviceName) {
         boolean connected = false;
         HessianProxyFactory factory = new HessianProxyFactory();
+        factory.setOverloadEnabled(true);
         String webUrl = "http://" + PersistanceManager.getInstance().getLoginServer() + ":" + CustServiceConstants.PORT + "/" + CustServiceConstants.APPURLNAME + "/";
 //        System.out.println(webUrl);
         try {
